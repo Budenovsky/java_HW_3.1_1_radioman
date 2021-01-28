@@ -5,22 +5,20 @@ public class Radio {
     private int minVol = 0;
     private int maxVol = 10;
     private int currentVol;
-//    int volPlus = currentVol + 1;
-//    int volMinus = currentVol - 1;
+    private int volPlus = currentVol + 1;
+    private int volMinus = currentVol - 1;
 
     private int minStation = 0;
     private int maxStation = 9;
 
-    private int remoteStation;
-    private int currentStation = remoteStation;
-//    int nextStation = currentStation + 1;
-//    int prevStation = currentStation - 1;
+    private int currentStation;
+    private int nextStation = currentStation + 1;
+    private int prevStation = currentStation - 1;
 
     private boolean on;
 
     public Radio() {
     }
-
 
     public String getName() {
         return name;
@@ -61,6 +59,26 @@ public class Radio {
         this.currentVol = currentVol;
     }
 
+    public int getVolPlus() {
+        return volPlus;
+    }
+
+    public void setVolPlus(int volPlus) {
+        if (currentVol == maxVol) {
+            this.volPlus = 10;
+        } else {
+            this.volPlus = currentVol + 1;
+        }
+    }
+
+    public int getVolMinus() {
+        return volMinus;
+    }
+
+    public void setVolMinus(int volMinus) {
+        this.volMinus = volMinus;
+    }
+
     public int getMinStation() {
         return minStation;
     }
@@ -77,18 +95,6 @@ public class Radio {
         this.maxStation = maxStation;
     }
 
-    public int getRemoteStation() {
-        return remoteStation;
-    }
-
-    public void setRemoteStation(int remoteStation) {
-        if (remoteStation > maxStation) {
-            return;
-        }
-
-        this.remoteStation = remoteStation;
-    }
-
     public int getCurrentStation() {
         return currentStation;
     }
@@ -96,14 +102,28 @@ public class Radio {
     public void setCurrentStation(int currentStation) {
         if (currentStation > maxStation) {
             currentStation = minStation;
-//            return minStation;
         }
         if (currentStation < minStation) {
             currentStation = maxStation;
-//            return maxStation;
         }
 
         this.currentStation = currentStation;
+    }
+
+    public int getNextStation() {
+        return nextStation;
+    }
+
+    public void setNextStation(int nextStation) {
+        this.nextStation = nextStation;
+    }
+
+    public int getPrevStation() {
+        return prevStation;
+    }
+
+    public void setPrevStation(int prevStation) {
+        this.prevStation = prevStation;
     }
 
     public boolean isOn() {
