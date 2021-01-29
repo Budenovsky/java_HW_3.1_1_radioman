@@ -5,15 +5,15 @@ public class Radio {
     private int minVol = 0;
     private int maxVol = 10;
     private int currentVol;
-    private int volPlus = currentVol + 1;
-    private int volMinus = currentVol - 1;
+    private int volPlus;
+    private int volMinus;
 
     private int minStation = 0;
     private int maxStation = 9;
 
     private int currentStation;
-    private int nextStation = currentStation + 1;
-    private int prevStation = currentStation - 1;
+    private int nextStation;
+    private int prevStation;
 
     private boolean on;
 
@@ -76,7 +76,11 @@ public class Radio {
     }
 
     public void setVolMinus(int volMinus) {
-        this.volMinus = volMinus;
+        if (currentVol == minVol) {
+            this.volMinus = 0;
+        } else {
+            this.volMinus = currentVol - 1;
+        }
     }
 
     public int getMinStation() {
@@ -115,7 +119,11 @@ public class Radio {
     }
 
     public void setNextStation(int nextStation) {
-        this.nextStation = nextStation;
+        if (currentStation == maxStation) {
+            this.nextStation = 0;
+        } else {
+            this.nextStation = currentStation + 1;
+        }
     }
 
     public int getPrevStation() {
@@ -123,7 +131,11 @@ public class Radio {
     }
 
     public void setPrevStation(int prevStation) {
-        this.prevStation = prevStation;
+        if (currentStation == minStation) {
+            this.prevStation = 9;
+        } else {
+            this.prevStation = currentStation - 1;
+        }
     }
 
     public boolean isOn() {

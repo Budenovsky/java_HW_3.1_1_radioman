@@ -23,8 +23,16 @@ class RadioTest {
     public void shouldSetVolPlus() {
         Radio radio = new Radio();
         radio.setCurrentVol(10);
-        radio.setVolPlus(999);
+        radio.setVolPlus(0);
         assertEquals(10,radio.getVolPlus());
+    }
+
+    @Test
+    public void shouldSetVolMinus() {
+        Radio radio = new Radio();
+        radio.setCurrentVol(10);
+        radio.setVolMinus(0);
+        assertEquals(9,radio.getVolMinus());
     }
 
     @Test
@@ -41,17 +49,19 @@ class RadioTest {
         assertEquals(0, radio.getCurrentStation());
     }
 
-//    @Test
-//    public void shouldSetRemoteStation() {
-//        Radio radio = new Radio();
-//        radio.setRemoteStation(8);
-//        assertEquals(8, radio.getRemoteStation());
-//    }
-//
-//    @Test
-//    public void shouldSetRemoteStation2() {
-//        Radio radio = new Radio();
-//        radio.setRemoteStation(80);
-//        assertEquals(0, radio.getRemoteStation());
-//    }
+    @Test
+    public void shouldSetNextStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(5);
+        radio.setNextStation(0);
+        assertEquals(6,radio.getNextStation());
+    }
+
+    @Test
+    public void shouldSetPrevStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(0);
+        radio.setPrevStation(0);
+        assertEquals(9,radio.getPrevStation());
+    }
 }
