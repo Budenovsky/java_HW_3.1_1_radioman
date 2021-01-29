@@ -23,7 +23,7 @@ class RadioTest {
     public void shouldSetVolPlus() {
         Radio radio = new Radio();
         radio.setCurrentVol(10);
-        radio.setVolPlus(0);
+        radio.setVolPlus(807);
         assertEquals(10,radio.getVolPlus());
     }
 
