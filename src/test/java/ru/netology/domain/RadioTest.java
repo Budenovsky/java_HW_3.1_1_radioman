@@ -20,38 +20,6 @@ class RadioTest {
     }
 
     @Test
-    public void shouldSetVolPlus() {
-        Radio radio = new Radio();
-        radio.setCurrentVol(10);
-        radio.setVolPlus(807);
-        assertEquals(10,radio.getVolPlus());
-    }
-
-    @Test
-    public void shouldSetVolPlus02() {
-        Radio radio = new Radio();
-        radio.setCurrentVol(7);
-        radio.setVolPlus(0);
-        assertEquals(8,radio.getVolPlus());
-    }
-
-    @Test
-    public void shouldSetVolMinus() {
-        Radio radio = new Radio();
-        radio.setCurrentVol(10);
-        radio.setVolMinus(0);
-        assertEquals(9,radio.getVolMinus());
-    }
-
-    @Test
-    public void shouldSetVolMinus2() {
-        Radio radio = new Radio();
-        radio.setCurrentVol(0);
-        radio.setVolMinus(0);
-        assertEquals(0,radio.getVolMinus());
-    }
-
-    @Test
     public void shouldSetCurrentStation() {
         Radio radio = new Radio();
         radio.setCurrentStation(-1);
@@ -66,34 +34,66 @@ class RadioTest {
     }
 
     @Test
-    public void shouldSetNextStation() {
+    public void shouldSetNextVol() {
         Radio radio = new Radio();
-        radio.setCurrentStation(5);
-        radio.setNextStation(0);
-        assertEquals(6,radio.getNextStation());
+        radio.setCurrentVol(10);
+        radio.nextVol();
+        assertEquals(10, radio.getCurrentVol());
     }
 
     @Test
-    public void shouldSetNextStation2() {
+    public void shouldSetNextVol02() {
+        Radio radio = new Radio();
+        radio.setCurrentVol(7);
+        radio.nextVol();
+        assertEquals(8, radio.getCurrentVol());
+    }
+
+    @Test
+    public void shouldSetPrevVol() {
+        Radio radio = new Radio();
+        radio.setCurrentVol(0);
+        radio.prevVol();
+        assertEquals(0, radio.getCurrentVol());
+    }
+
+    @Test
+    public void shouldSetPrevVol02() {
+        Radio radio = new Radio();
+        radio.setCurrentVol(7);
+        radio.prevVol();
+        assertEquals(6, radio.getCurrentVol());
+    }
+
+    @Test
+    public void shouldSetNextStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(7);
+        radio.nextStation();
+        assertEquals(8, radio.getCurrentStation());
+    }
+
+    @Test
+    public void shouldSetNextStation02() {
         Radio radio = new Radio();
         radio.setCurrentStation(9);
-        radio.setNextStation(0);
-        assertEquals(0,radio.getNextStation());
+        radio.nextStation();
+        assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     public void shouldSetPrevStation() {
         Radio radio = new Radio();
         radio.setCurrentStation(0);
-        radio.setPrevStation(0);
-        assertEquals(9,radio.getPrevStation());
+        radio.prevStation();
+        assertEquals(9, radio.getCurrentStation());
     }
 
     @Test
-    public void shouldSetPrevStation0() {
+    public void shouldSetPrevStation02() {
         Radio radio = new Radio();
-        radio.setCurrentStation(7);
-        radio.setPrevStation(0);
-        assertEquals(6,radio.getPrevStation());
+        radio.setCurrentStation(2);
+        radio.prevStation();
+        assertEquals(1, radio.getCurrentStation());
     }
 }
