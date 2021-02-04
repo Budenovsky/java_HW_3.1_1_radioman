@@ -3,11 +3,11 @@ package ru.netology.domain;
 public class Radio {
     private int id;
     private String name = "noname";
-    private int minVol = 0;
+    private int minVol;
     private int maxVol = 100;
     private int currentVol;
 
-    private int minStation = 0;
+    private int minStation;
     private int maxStation = 10;
     private int currentStation;
 
