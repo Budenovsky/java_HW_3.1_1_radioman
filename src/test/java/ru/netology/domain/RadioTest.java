@@ -10,8 +10,12 @@ class RadioTest {
         Radio radio = new Radio(
                 13,
                 "01",
-                208
-
+                0,
+                100,
+                0,
+                0,
+                208,
+                0
         );
         assertEquals(208, radio.getMaxStation());
     }
@@ -56,7 +60,12 @@ class RadioTest {
         Radio radio = new Radio(
                 101,
                 "18 stations",
-                18
+                0,
+                100,
+                0,
+                0,
+                18,
+                0
         );
         radio.setCurrentStation(-1);
         assertEquals(18, radio.getCurrentStation());
@@ -115,7 +124,12 @@ class RadioTest {
         Radio radio = new Radio(
                 123,
                 "08",
-                15
+                0,
+                100,
+                0,
+                0,
+                15,
+                0
         );
         radio.setCurrentStation(15);
         radio.nextStation();
@@ -135,7 +149,12 @@ class RadioTest {
         Radio radio = new Radio(
                 124,
                 "30 stations",
-                30
+                0,
+                100,
+                0,
+                0,
+                30,
+                0
         );
         radio.setCurrentStation(0);
         radio.prevStation();
