@@ -1,13 +1,14 @@
 package ru.netology.domain;
 
 public class Radio {
-    private String name;
-    private int minVol = 0;
-    private int maxVol = 10;
+    private int id;
+    private String name = "noname";
+    private int minVol;
+    private int maxVol = 100;
     private int currentVol;
 
-    private int minStation = 0;
-    private int maxStation = 9;
+    private int minStation;
+    private int maxStation = 10;
     private int currentStation;
 
     private boolean on;
@@ -15,7 +16,13 @@ public class Radio {
     public Radio() {
     }
 
-    public String getName() {
+    public Radio(int id, String name, int maxStation) {
+        this.id = id;
+        this.name = name;
+        this.maxStation = maxStation;
+    }
+
+        public String getName() {
         return name;
     }
 
